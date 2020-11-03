@@ -1,1 +1,1 @@
-# Rowan1451
+# Rowan IEEE 1451 Development
