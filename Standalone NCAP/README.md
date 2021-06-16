@@ -13,3 +13,19 @@ RUSMARTLAB/Heartbeat
 RUSMARTLAB/NCAP_ID
 ## NCAP --> Application
 RUSMARTLAB/APPL_ID
+
+# Commands
+## NCAP Discover
+Payload: 1,3,1,8,1,1
+
+## TIM Discover
+Payload: 1,5,1,16,1,1
+
+## Transducer Discover
+Payload: 1,6,1,16,1,1
+
+## Read Transducer Channel
+Payload: 2,1,1,27,1,1,1,10,1
+
+# Using EMQX Online Broker for Testing
+*coming soon*
