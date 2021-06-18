@@ -23,12 +23,13 @@ HeartbeatDelay = 10
 #####################################
 
 # Assume we know the name of the Application we are targeting. Change this as you need.
-NCAP_Name = "Process001"
+RandomIndex = str(random.randint(1, 1000))
+NCAP_Name = "Process"+RandomIndex
 AddressType = "1"
 Address = str(socket.gethostbyname(socket.gethostname()))
 # Determine a Random NCAP ID. Can be replaced with a constant if desired.
 #NCAP_ID = "SA_NCAP" + str(random.randint(1, 1000))
-NCAP_ID = "SA_NCAP" + "001"
+NCAP_ID = "SA_NCAP" + RandomIndex
 TIM_ID = "1"
 NumTIM = "1"
 NumChan = "1"
