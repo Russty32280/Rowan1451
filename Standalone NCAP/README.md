@@ -15,6 +15,7 @@ Once your NCAP is connected to the MQTT Broker, it will broadcast its NCAP_ID an
 RUSMARTLAB/Heartbeat
 
 For the time being, the NCAP will reply back to a topic called "RUSMARTLAB/APPL_ID", where the APPL_ID is the string "APPL" concatenated with the randomly generated index from the initialization. For example, if your NCAP assumed the NCAP_ID of "SA_NCAP123", the APPL_ID it will associate with by default is "APPL123".
+
 ## NCAP --> Application
 RUSMARTLAB/APPL_ID
 
@@ -26,19 +27,37 @@ This is automatically published every 10 seconds and does not require a command 
 
 ## NCAP Discover
 Discover details about the NCAP including the NCAP Name, IP Address, and number of TIMs connected to it.
-Payload: 1,3,1,8,1,1
+
+_Payload_: 1,3,1,8,1,1
 
 ## TIM Discover
 Discover specific details about a TIM connected to the specified NCAP including the TIM ID and Number of Transducer Channels.
-Payload: 1,5,1,16,1,1
+
+_Payload_: 1,5,1,16,1,1
 
 ## Transducer Discover
 Discover the types of transducers connected to a specific TIM.
-Payload: 1,6,1,16,1,1
+
+_Payload_: 1,6,1,16,1,1
 
 ## Read Transducer Channel
 Request a sample reading of a single transducer connected to a particular NCAP.
-Payload: 2,1,1,27,1,1,1,10,1
+
+_Payload_: 2,1,1,27,1,1,1,10,1
+
+# Typical Testing Procedure
+## 1. Connecting with an online MQTT Client
+Using an online client such as (http://tools.emqx.io/) or your own client on your phone or other device, you will need to connect to the MQTT broker in order to get started talking to your NCAP. The broker information used by default is:
+- Broker: broker.emqx.io
+- Port: 8083
+- Username: N/A
+- Password: N/A
+
+## 2. Subscribing to the Heartbeat to find your NCAP 
+To listen to the Heartbeats of the NCAPs connected to the broker in our network, you will want to subscribe to the topic: "RUSMARTLAB/Heartbeat".
+
+## Subscribing to your  
+
 
 # Using EMQX Online Broker for Testing
 *coming soon*

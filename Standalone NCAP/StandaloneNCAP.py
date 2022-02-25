@@ -33,8 +33,8 @@ NCAP_ID = "SA_NCAP" + RandomIndex
 TIM_ID = "1"
 NumTIM = "1"
 NumChan = "1"
-XDCR_ChanID_Array = "(1;2;3)"
-XDCR_ChanNameArray = "(\"Temp000001\",\"Valve00001\",\"PresSw0001\")"
+XDCR_ChanID_Array = "(1;2;3;4;5)"
+XDCR_ChanNameArray = "(\"Temp000001\";\"Valve00001\";\"PresSw0001\")"
 ResponseTopic = "RUSMARTLAB/" + NCAP_Name
 AlertEnable = False
 
@@ -154,7 +154,7 @@ def Thread132(MSG_Tuple, SenderInfo):
     print(SenderInfo)
     MSG = dict(MSG_Tuple)
     print(MSG)
-    response = '1,3,2,25,' + NCAP_Name + ',' + AddressType + ',' + Address
+    response = '1,3,2,25,0,' + NCAP_ID + ',' + NCAP_Name + ',' + AddressType + ',' + Address
     #mqtt_send(str(SenderInfo[1]), response)
     publish.single(ResponseTopic, response, hostname=MQTTHostName)
 
