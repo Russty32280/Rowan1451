@@ -24,3 +24,6 @@ TIM development will range between multiple devices from the Raspberry Pi to the
 * *Raspberry Pi:* Python
 * *MSP430:* C and Code Composer Studio
 * *ESP32/8266:* Arduino IDE
+
+## TEDS
+Coming Soon

@@ -5,9 +5,9 @@ import paho.mqtt.publish as publish
 import time
 import _thread
 import sys
-from grove.gpio import GPIO
-from grove.i2c import Bus
-from grove.factory import Factory
+#from grove.gpio import GPIO
+#from grove.i2c import Bus
+#from grove.factory import Factory
 
 
 NCAPS_Name = "Process001"
@@ -24,7 +24,7 @@ AlertEnable = False
 
 
 #####GROVE SENSORS######
-
+'''
 charmap = {
     '0': 0x3f,
     '1': 0x06,
@@ -317,7 +317,7 @@ class Grove4DigitDisplay(object):
 
 
 ##### END GROVE SENSORS#####
-
+'''
 
 
 
@@ -453,7 +453,8 @@ def Thread212(MSG_Tuple, SenderInfo):
     ReadSensorData = "0"
     if MSG["TIM_ID"] == '1':
         if MSG["XDCR_ChanID"] == '1':
-            ReadSensorData = str(round(sensor.temperature,2))
+            #ReadSensorData = str(round(sensor.temperature,2))
+            ReadSensorData = "1234"
     response = '2,1,1,N,0,' + NCAPS_ID + ',' + TIM_ID + ',' + MSG["XDCR_ChanID"] + ',' + ReadSensorData + ',' + time.strftime("%H:%M:%S", time.localtime())
     print(response)
     publish.single(ResponseTopic, response, hostname="broker.emqx.io")
@@ -523,11 +524,12 @@ mqttc.on_subscribe = on_subscribe
 mqttc.connect("broker.emqx.io", 1883, 60)
 mqttc.subscribe("RUSMARTLAB/NCAPS001", 0)
 
-pir = GroveMiniPIRMotionSensor(5)
-display = Grove4DigitDisplay(16, 17)
-sensor = Factory.getTemper("NTC-ADC", 0)
+#pir = GroveMiniPIRMotionSensor(5)
+#display = Grove4DigitDisplay(16, 17)
+#sensor = Factory.getTemper("NTC-ADC", 0)
 #RPI.gpio.analogWrite(12,120)
 #grovepi.analogWrite(12, 120)
+'''
 def callbackPIR():
     print('PIR Motion detected.')
 
@@ -543,7 +545,7 @@ def callbackPiezo():
 
 piv.on_detect = callbackPiezo
 
-
+'''
 
 # Start the Client Loop
 mqttc.loop_start()
